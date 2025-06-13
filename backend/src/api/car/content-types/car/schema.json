@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars",
+  "info": {
+    "singularName": "car",
+    "pluralName": "cars",
+    "displayName": "Car"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false,
+      "unique": false
+    },
+    "NumSeat": {
+      "type": "integer",
+      "required": true
+    },
+    "Size": {
+      "type": "enumeration",
+      "required": false,
+      "default": "Other",
+      "enum": [
+        "Economy",
+        "Compact",
+        "Mid size",
+        "Full size",
+        "SUV",
+        "Luxury",
+        "Other"
+      ]
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Manual",
+        "Auto"
+      ]
+    },
+    "Fuel": {
+      "type": "enumeration",
+      "enum": [
+        "Petrol",
+        "Electricity"
+      ]
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Active": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "booking_ids": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "car_id"
+    }
+  }
+}
